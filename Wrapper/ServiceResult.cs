@@ -81,6 +81,8 @@ namespace Application.Wrapper
             ObjResult = data;
 
         }
+     
+
         public ServiceResult(bool succeed)
         {
             Succeed = succeed;
