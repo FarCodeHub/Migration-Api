@@ -2,19 +2,17 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Interfaces;
-using Application.Interfaces.Repositories;
 using Application.Wrapper;
 using AutoMapper;
+using Domain.Entities;
 using MediatR;
 
-namespace Application.Commands.Person.Delete
+namespace Application.Commands
 {
     public class DeletePersonCommand : IRequest<ServiceResult>, IMapFrom<DeletePersonCommand>
     {
 
         public int Id { get; set; }
-
-
 
         public void Mapping(Profile profile)
         {
@@ -25,12 +23,12 @@ namespace Application.Commands.Person.Delete
 
     public class DeletePersonCommandHandler : IRequestHandler<DeletePersonCommand, ServiceResult>
     {
-        private readonly IPersonRepository _personRepository;
+        private readonly IRepository<Person> _personRepository;
    
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeletePersonCommandHandler(IPersonRepository personRepository, IMapper mapper, IUnitOfWork unitOfWork )
+        public DeletePersonCommandHandler(IRepository<Person> personRepository, IMapper mapper, IUnitOfWork unitOfWork )
         {
             _personRepository = personRepository;
             _mapper = mapper;

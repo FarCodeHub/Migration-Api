@@ -1,21 +1,19 @@
 ﻿using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Commands.Attachment.Models;
 using Application.Interfaces;
-using Application.Interfaces.Repositories;
 using Application.Wrapper;
 using AutoMapper;
+using Domain.Entities;
 using MediatR;
 
-namespace Application.Commands.Attachment.Create
+namespace Application.Commands
 {
     public class CreateFileCommand : IRequest<ServiceResult<FileModel>>, IMapFrom<CreateFileCommand>
     {
 
         public string FileName { get; set; }
         public int UserId { get; set; }
-
 
         public void Mapping(Profile profile)
         {
@@ -27,11 +25,11 @@ namespace Application.Commands.Attachment.Create
     public class CreateFileCommandHandler : IRequestHandler<CreateFileCommand, ServiceResult<FileModel>>
     {
 
-        private readonly IAttachmentRepository _attachmentRepository;
+        private readonly IRepository<Attachment> _attachmentRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateFileCommandHandler(  IMapper mapper, IUnitOfWork unitOfWork, IAttachmentRepository attachmentRepository)
+        public CreateFileCommandHandler(  IMapper mapper, IUnitOfWork unitOfWork, IRepository<Attachment> attachmentRepository)
         {
           
             _mapper = mapper;

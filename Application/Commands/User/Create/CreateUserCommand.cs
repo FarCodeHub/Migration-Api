@@ -2,13 +2,12 @@
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Commands.User.Models;
 using Application.Interfaces;
-using Application.Interfaces.Repositories;
 using Application.Wrapper;
 using AutoMapper;
+using Domain.Entities;
 
-namespace Application.Commands.User.Create
+namespace Application.Commands
 {
    public class CreateUserCommand : IRequest<ServiceResult<UserModel>>, IMapFrom<CreateUserCommand>
     {
@@ -29,11 +28,11 @@ namespace Application.Commands.User.Create
    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, ServiceResult<UserModel>>
    {
        private readonly IMapper _mapper;
-        private readonly IUserRepository _userRepository;
+        private readonly IRepository<User> _userRepository;
        
        private readonly IUnitOfWork _unitOfWork;
 
-       public CreateUserCommandHandler(IMapper mapper, IUserRepository userRepository,  IUnitOfWork unitOfWork)
+       public CreateUserCommandHandler(IMapper mapper, IRepository<User> userRepository,  IUnitOfWork unitOfWork)
        {
             _userRepository = userRepository;
            _mapper = mapper;

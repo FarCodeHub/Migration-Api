@@ -7,10 +7,7 @@ using Persistence;
 using System;
 using System.Collections.Generic;
 using Application.Interfaces;
-using Application.Queries.Condition;
-using Application.Queries.Lawyer;
-using Application.Queries.Person;
-using Application.Queries.User;
+using Application.Queries;
 using Microsoft.EntityFrameworkCore;
 using Infrastracture.Configuration;
 
@@ -43,7 +40,6 @@ namespace Migration
             services.AddScoped<IUserQueries, UserQueries>();
             services.AddScoped<IPersonQueries, PersonQueries>();
             services.AddScoped<ILawyerQueries, LawyerQueries>();
-            services.AddScoped<IConditionQueries, ConditionQueries>();
 
             services.AddDbContext<MigrationContext>(x => x.UseSqlServer(connectionString));
             services.AddMvc();

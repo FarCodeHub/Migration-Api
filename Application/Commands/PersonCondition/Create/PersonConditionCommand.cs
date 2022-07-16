@@ -9,7 +9,7 @@ using Domain.Entities;
 
 namespace Application.Commands
 {
-   public class CreateLawyerConditionCommand : IRequest<ServiceResult<LawyerConditionModel>>, IMapFrom<PersonConditionCommand>
+   public class PersonConditionCommand : IRequest<ServiceResult<LawyerConditionModel>>, IMapFrom<PersonConditionCommand>
     {
         public int LawyerId { get; set; }
         public string Condition { get; set; }
@@ -23,19 +23,19 @@ namespace Application.Commands
         }
     }
 
-    public class CreateLawyerConditionCommandHandler : IRequestHandler<PersonConditionCommand, ServiceResult<LawyerConditionModel>>
+    public class PersonConditionCommandHandler : IRequestHandler<PersonConditionCommand, ServiceResult<LawyerConditionModel>>
     {
 
-        private readonly IRepository<LawyerCondition> _lawyerConditionRepository;
+        private readonly IRepository<PersonCondition> _personConditionRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateLawyerConditionCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IRepository<LawyerCondition> lawyerConditionRepository)
+        public PersonConditionCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IRepository<PersonCondition> personConditionRepository)
         {
             
             _mapper = mapper;
             _unitOfWork = unitOfWork;
-            _lawyerConditionRepository = lawyerConditionRepository;
+            _personConditionRepository = personConditionRepository;
         }
 
 
@@ -44,8 +44,8 @@ namespace Application.Commands
 
             await _unitOfWork.BeginTransactionAsync(IsolationLevel.ReadCommitted, cancellationToken);
 
-            var lawyer = _lawyerConditionRepository
-                .Add(_mapper.Map<Domain.Entities.LawyerCondition>(request));
+            var lawyer = _personConditionRepository
+                .Add(_mapper.Map<Domain.Entities.PersonCondition>(request));
 
             await _unitOfWork.CommitTransactionAsync(cancellationToken);
             var data = _mapper.Map<LawyerConditionModel>(lawyer.Entity);

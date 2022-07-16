@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Application.Interfaces.Repositories;
+using Application.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Queries.Lawyer
+namespace Application.Queries
 {
    public class LawyerQueries : ILawyerQueries
 
     {
-        private readonly ILawyerRepository _lawyerRepository;
-        private readonly ILawyerConditionRepository _lawyerConditionRepository;
+        private readonly IRepository<Lawyer> _lawyerRepository;
+        private readonly IRepository<LawyerCondition> _lawyerConditionRepository;
         private readonly IMapper _mapper;
 
-        public LawyerQueries(ILawyerRepository lawyerRepository, IMapper mapper, ILawyerConditionRepository lawyerConditionRepository)
+        public LawyerQueries(IRepository<Lawyer> lawyerRepository, IMapper mapper, IRepository<LawyerCondition> lawyerConditionRepository)
         {
             _lawyerRepository = lawyerRepository;
             _mapper = mapper;
@@ -23,9 +24,8 @@ namespace Application.Queries.Lawyer
 
         public async Task<List<LawyerQueryModel>> GetLawyers()
         {
-            var entities = await _lawyerRepository.GetAll().ToListAsync();
-                //.Include(x=>x.LawyerCondition)
-                //.ThenInclude(x=>x.Condition).ProjectTo<LawyerQueryModel>(_mapper.ConfigurationProvider).ToListAsync();
+            var entities = await _lawyerRepository.GetAll()
+                .Include(x => x.LawyerCondition).ToListAsync();
             var lawyers = _mapper.Map<List<LawyerQueryModel>>(entities);
             return lawyers;
 

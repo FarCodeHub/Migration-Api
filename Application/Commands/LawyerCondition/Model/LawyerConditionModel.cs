@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using AutoMapper;
 
-namespace Application.Commands.LawyerCondition.Model
+namespace Application.Commands
 {
    public class LawyerConditionModel : IMapFrom<Domain.Entities.LawyerCondition>
     {

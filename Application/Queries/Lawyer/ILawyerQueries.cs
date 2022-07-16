@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Application.Queries.Lawyer
+namespace Application.Queries
 {
    public interface ILawyerQueries
     {

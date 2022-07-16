@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using AutoMapper;
 
-namespace Application.Commands.Visa.Model
+namespace Application.Commands
 {
     public class VisaModel : IMapFrom<Domain.Entities.Visa>
     {

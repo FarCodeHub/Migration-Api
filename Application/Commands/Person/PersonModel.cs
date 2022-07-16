@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using AutoMapper;
 
-namespace Application.Commands.Person
+namespace Application.Commands
 {
   public class PersonModel:IMapFrom<Domain.Entities.Person>
     {

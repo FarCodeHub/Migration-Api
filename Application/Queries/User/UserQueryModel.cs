@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using AutoMapper;
 
-namespace Application.Queries.User
+namespace Application.Queries
 {
    public class UserQueryModel:IMapFrom<Domain.Entities.User>
     {

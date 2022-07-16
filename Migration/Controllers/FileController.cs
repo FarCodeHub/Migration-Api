@@ -2,9 +2,9 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Application.Commands.Attachment.Create;
 using Microsoft.AspNetCore.Hosting;
 using Migration.Models;
+using Application.Commands;
 
 namespace Migration.Controllers
 {
@@ -19,7 +19,7 @@ namespace Migration.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Upload([FromForm] FileModel file)
+        public async Task<IActionResult> Upload([FromForm] Models.FileModel file)
         {
             string webRootPath = _webHostEnvironment.WebRootPath;
             string path = "";

@@ -2,8 +2,6 @@
 
 namespace Domain.Entities
 {
-       
-       
     public class Lawyer :BaseEntity
     {
      

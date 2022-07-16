@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Application.Wrapper;
 
-namespace Application.Queries.User
+namespace Application.Queries
 {
    public interface IUserQueries
     {

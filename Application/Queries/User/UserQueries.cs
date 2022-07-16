@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Application.Interfaces.Repositories;
+using Application.Interfaces;
 using Application.Wrapper;
 using AutoMapper;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Queries.User
+namespace Application.Queries
 {
    public class UserQueries: IUserQueries
 
     {
-       private readonly IUserRepository _userRepository;
+       private readonly IRepository<User> _userRepository;
        private readonly IMapper _mapper;
 
-        public UserQueries(IUserRepository userRepository, IMapper mapper)
+        public UserQueries(IRepository<User> userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _mapper = mapper;

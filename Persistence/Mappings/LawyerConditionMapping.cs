@@ -14,10 +14,6 @@ namespace Persistence.Mappings
             builder.HasOne(f => f.Lawyer)
                 .WithMany(f => f.LawyerCondition)
                 .HasForeignKey(f => f.LawyerId);
-
-            builder.HasOne(f => f.Condition)
-                .WithMany(f => f.LawyerCondition)
-                .HasForeignKey(f => f.ConditionId);
         }
     }
 }

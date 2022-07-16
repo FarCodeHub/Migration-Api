@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Application.Commands.LawyerCondition.Create;
+using Application.Commands;
 
 namespace Migration.Controllers
 {

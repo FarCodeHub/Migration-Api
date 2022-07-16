@@ -5,9 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Condition\Model\" />
-    <Folder Include="Commands\Lawyer\Create\" />
-    <Folder Include="Commands\Lawyer\Model\" />
+    <Compile Remove="Commands\Lawyer\**" />
+    <EmbeddedResource Remove="Commands\Lawyer\**" />
+    <None Remove="Commands\Lawyer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Commands\User\Update\" />
   </ItemGroup>
 

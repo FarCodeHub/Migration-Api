@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Application.Queries.Lawyer;
+using Application.Queries;
 
 namespace Migration.Controllers
 {

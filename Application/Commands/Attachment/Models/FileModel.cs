@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using AutoMapper;
 
-namespace Application.Commands.Attachment.Models
+namespace Application.Commands
 {
    public class FileModel : IMapFrom<Domain.Entities.Attachment>
    {

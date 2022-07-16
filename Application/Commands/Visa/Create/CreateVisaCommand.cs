@@ -1,4 +1,4 @@
-﻿namespace Application.Commands.Visa.Create
+﻿namespace Application.Commands
 {
    public class CreateVisaCommand 
     {

@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Application.Commands.Person.Create;
-using Application.Commands.Person.Delete;
-using Application.Queries.Person;
+using Application.Queries;
+using Application.Commands;
 
 namespace Migration.Controllers
 {

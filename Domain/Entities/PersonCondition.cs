@@ -11,7 +11,8 @@ namespace Domain.Entities
         public int PersonId { get; set; }
         public int ConditionId { get; set; }
         public Person Person { get; set; }
-        public Condition Condition { get; set; }
+        
+        public virtual LawyerCondition LawyerCondition { get; set; }
 
 
     }

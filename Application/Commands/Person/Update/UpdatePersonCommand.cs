@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Commands.Person.Update
+namespace Application.Commands
 {
     class UpdatePersonCommand
     {

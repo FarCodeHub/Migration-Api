@@ -3,12 +3,12 @@ using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Interfaces;
-using Application.Interfaces.Repositories;
 using Application.Wrapper;
 using AutoMapper;
+using Domain.Entities;
 using MediatR;
 
-namespace Application.Commands.Person.Create
+namespace Application.Commands
 {
     public class CreatePersonCommand : IRequest<ServiceResult<PersonModel>>,IMapFrom<CreatePersonCommand>
     {
@@ -34,19 +34,15 @@ namespace Application.Commands.Person.Create
 
     public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, ServiceResult<PersonModel>>
     {
-        private readonly IPersonRepository _personRepository;
-        private readonly IUserRepository _userRepository;
-        private readonly IVisaRepository _visaRepository;
+        private readonly IRepository<Person> _personRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreatePersonCommandHandler(IPersonRepository personRepository, IMapper mapper, IUnitOfWork unitOfWork, IUserRepository userRepository, IVisaRepository visaRepository)
+        public CreatePersonCommandHandler(IRepository<Person> personRepository, IMapper mapper, IUnitOfWork unitOfWork)
         {
             _personRepository = personRepository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
-            _userRepository = userRepository;
-            _visaRepository = visaRepository;
         }
 
 

@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Application.Interfaces.Repositories;
+using Application.Interfaces;
 using AutoMapper;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Queries.Person
+namespace Application.Queries
 {
     public class PersonQueries : IPersonQueries
 
     {
-        private readonly IPersonRepository _personRepository;
+        private readonly IRepository<Person> _personRepository;
         private readonly IMapper _mapper;
 
-        public PersonQueries(IPersonRepository personRepository, IMapper mapper)
+        public PersonQueries(IRepository<Person> personRepository, IMapper mapper)
         {
             _personRepository = personRepository;
             _mapper = mapper;
