@@ -1,5 +1,3 @@
-using System;
-
 namespace Migration.Models
 {
     public class ErrorViewModel

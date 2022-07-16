@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Commands\Condition\Model\" />
+    <Folder Include="Commands\Lawyer\Create\" />
+    <Folder Include="Commands\Lawyer\Model\" />
     <Folder Include="Commands\User\Update\" />
   </ItemGroup>
 

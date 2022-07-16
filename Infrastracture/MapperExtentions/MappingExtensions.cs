@@ -1,13 +1,7 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
- 
-using Microsoft.EntityFrameworkCore;
 
- namespace Infrastracture.MapperExtentions
+namespace Infrastracture.MapperExtentions
 {
    public static class MappingExtensions
     {

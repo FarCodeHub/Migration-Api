@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Application.Commands.Person.Create;
+using Application.Commands.Person.Delete;
 using Application.Queries.Person;
-using Application.Queries.User;
 
 namespace Migration.Controllers
 {
@@ -19,8 +15,6 @@ namespace Migration.Controllers
             _personQueries = personQueries;
         }
 
-
-
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreatePersonCommand command) =>
             Ok(await mediator.Send(command));
@@ -30,5 +24,9 @@ namespace Migration.Controllers
             var result =await _personQueries.GetPersons();
             return Ok(result);
     }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromQuery] int id) => Ok( await mediator.Send(new DeletePersonCommand { Id = id }));
+
     }
 }

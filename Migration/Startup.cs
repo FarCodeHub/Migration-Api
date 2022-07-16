@@ -1,15 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Persistence;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Interfaces;
+using Application.Queries.Condition;
+using Application.Queries.Lawyer;
 using Application.Queries.Person;
 using Application.Queries.User;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +42,9 @@ namespace Migration
             var connectionString = Configuration.GetConnectionString("MigrationDb");
             services.AddScoped<IUserQueries, UserQueries>();
             services.AddScoped<IPersonQueries, PersonQueries>();
+            services.AddScoped<ILawyerQueries, LawyerQueries>();
+            services.AddScoped<IConditionQueries, ConditionQueries>();
+
             services.AddDbContext<MigrationContext>(x => x.UseSqlServer(connectionString));
             services.AddMvc();
 

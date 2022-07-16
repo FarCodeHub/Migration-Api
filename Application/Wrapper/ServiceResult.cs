@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Application.Wrapper
 {
@@ -44,6 +40,13 @@ namespace Application.Wrapper
             ObjResult = null;
             Exceptions = new Dictionary<string, List<string>>();
         }
+        public ServiceResult(bool succeed, object data)
+        {
+            Succeed = false;
+            ObjResult = data;
+            
+        }
+
     }
 
 
@@ -81,8 +84,7 @@ namespace Application.Wrapper
             ObjResult = data;
 
         }
-     
-
+ 
         public ServiceResult(bool succeed)
         {
             Succeed = succeed;

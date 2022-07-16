@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Commands.Attachment.Models;
-using Application.Commands.Person;
-using Application.Commands.Person.Create;
 using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using Application.Wrapper;

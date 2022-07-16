@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Application.Interfaces;
 using Application.Interfaces.Repositories;
-using Application.Queries.User;
-using Application.Wrapper;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,12 +18,12 @@ namespace Application.Queries.Person
             _mapper = mapper;
         }
 
-        public async Task<ServiceResult<PersonQueryModel>> GetPersons()
+        public async Task<List<PersonQueryModel>> GetPersons()
         {
             var persons = await _personRepository.GetAll().ToListAsync();
 
-            var map = _mapper.Map<PersonQueryModel>(persons);
-            return new ServiceResult<PersonQueryModel>(map, true);
+            var personsModel = _mapper.Map<List<PersonQueryModel>>(persons);
+            return personsModel;
 
 
         }

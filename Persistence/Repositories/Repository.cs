@@ -5,11 +5,12 @@ using System.Linq;
 using System.Linq.Expressions;
  
 using System.Threading.Tasks;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Persistence.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class , IBaseEntity
     {
         protected readonly MigrationContext _context;
 
@@ -33,8 +34,14 @@ namespace Persistence.Repositories
 
         public IQueryable<TEntity> GetAll() => _context.Set<TEntity>();
 
-        public void Remove(TEntity entity) => _context.Set<TEntity>().Remove(entity);
+        public void Remove(TEntity entity)
+        {
+            if(entity is null)   throw new Exception("Entity Is Null");
+            entity.IsDeleted = true;
+            _context.Set<TEntity>().Update(entity);
+        }
 
+      
 
         public void RemoveRange(IEnumerable<TEntity> entities) => _context.Set<TEntity>().RemoveRange(entities);
 

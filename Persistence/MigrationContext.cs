@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -14,7 +9,7 @@ namespace Persistence
         public DbSet<Person> Persons { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Visa> Visas { get; set; }
-
+        public DbSet<Lawyer> Lawyers { get; set; }
         public MigrationContext(DbContextOptions<MigrationContext> options):base(options)
         {
             

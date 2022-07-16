@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -24,6 +19,15 @@ namespace Persistence.Mappings
             builder.HasOne(f => f.Visa)
                 .WithOne(f => f.Person)
                 .HasForeignKey<Visa>(f => f.PersonId);
+
+            builder.HasMany(f => f.PersonLawyers)
+                .WithOne(x => x.Person)
+                .HasForeignKey(f => f.PersonId);
+
+            builder.HasMany(f => f.PersonConditions)
+                .WithOne(x => x.Person)
+                .HasForeignKey(f => f.PersonId);
+
         }
     }
 }
