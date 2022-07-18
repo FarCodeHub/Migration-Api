@@ -22,7 +22,7 @@ namespace Persistence.Mappings
 
             builder.HasOne(f => f.LawyerCondition)
                 .WithMany(f => f.PersonConditions)
-                .HasForeignKey(f => f.ConditionId);
+                .HasForeignKey(f => f.LawyerConditionId);
         }
     }
     

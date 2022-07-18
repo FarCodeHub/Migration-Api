@@ -42,7 +42,8 @@ namespace Application.Commands
 
             await _unitOfWork.BeginTransactionAsync(IsolationLevel.ReadCommitted, cancellationToken);
             var entity =await _personRepository.Get(request.Id);
-              _personRepository.Remove(entity);
+            entity.Status = 2;
+              _personRepository.Update(entity);
 
             await _unitOfWork.CommitTransactionAsync(cancellationToken);
          

@@ -14,6 +14,7 @@ namespace Domain.Entities
         public string PhoneNumber { get; set; }
         public string VisaType { get; set; }
         public string VisaStatus { get; set; }
+        public int Status { get; set; } = 0;
         public DateTime VisaExpirationDate { get; set; }
         public User User { get; set; }
         public Visa Visa { get; set; }

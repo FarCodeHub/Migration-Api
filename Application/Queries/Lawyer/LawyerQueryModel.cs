@@ -23,7 +23,9 @@ namespace Application.Queries
 
     public class LawyerConditionModel : IMapFrom<Domain.Entities.LawyerCondition>
     {
+        public int Id { get; set; }
         public int LawyerId { get; set; }
+        public string FullName { get; set; }
         public string Title { get; set; }
 
         public void Mapping(Profile profile)

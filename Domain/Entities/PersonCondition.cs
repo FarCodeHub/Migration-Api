@@ -9,7 +9,7 @@ namespace Domain.Entities
    public class PersonCondition:BaseEntity
     {
         public int PersonId { get; set; }
-        public int ConditionId { get; set; }
+        public int LawyerConditionId { get; set; }
         public Person Person { get; set; }
         
         public virtual LawyerCondition LawyerCondition { get; set; }

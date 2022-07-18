@@ -41,7 +41,12 @@ namespace Persistence.Repositories
             _context.Set<TEntity>().Update(entity);
         }
 
-      
+        public void Update(TEntity entity)
+        {
+            if (entity is null) throw new Exception("Entity Is Null");
+         //   entity.IsDeleted = true;
+            _context.Set<TEntity>().Update(entity);
+        }
 
         public void RemoveRange(IEnumerable<TEntity> entities) => _context.Set<TEntity>().RemoveRange(entities);
 
