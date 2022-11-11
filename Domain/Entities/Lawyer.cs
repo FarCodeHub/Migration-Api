@@ -1,15 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+ 
 
 namespace Domain.Entities
 {
-    public class Lawyer :BaseEntity
+    public partial class Lawyer:BaseEntity
     {
-     
+        public Lawyer()
+        {
+            LawyerConditions = new HashSet<LawyerCondition>();
+            PersonLawyers = new HashSet<PersonLawyer>();
+        }
+
+        
         public string FullName { get; set; }
         public string Code { get; set; }
-     
-        public List<LawyerCondition> LawyerCondition { get; set; }
-        public List<PersonLawyer> PersonLawyers { get; set; }
-
+        
+        public virtual ICollection<LawyerCondition> LawyerConditions { get; set; }
+        public virtual ICollection<PersonLawyer> PersonLawyers { get; set; }
     }
 }

@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace Domain.Entities
 {
-   public class PersonCondition:BaseEntity
-    {
+    public partial class PersonCondition:BaseEntity
+    { 
         public int PersonId { get; set; }
-        public int LawyerConditionId { get; set; }
-        public Person Person { get; set; }
-        
+        public int LawyerConditionId { get; set; } 
+
         public virtual LawyerCondition LawyerCondition { get; set; }
-
-
+        public virtual Person Person { get; set; }
     }
 }

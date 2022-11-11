@@ -25,7 +25,7 @@ namespace Application.Queries
         public async Task<List<LawyerQueryModel>> GetLawyers()
         {
             var entities = await _lawyerRepository.GetAll()
-                .Include(x => x.LawyerCondition).ToListAsync();
+                .Include(x => x.LawyerConditions).ToListAsync();
             var lawyers = _mapper.Map<List<LawyerQueryModel>>(entities);
             return lawyers;
 

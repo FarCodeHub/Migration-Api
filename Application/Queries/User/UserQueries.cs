@@ -37,7 +37,8 @@ namespace Application.Queries
             var user = await _userRepository.GetAll().Include(x=>x.Person)
                 .Where(x => x.UserName.Equals(userName) && x.Password.Equals(password)).FirstOrDefaultAsync();
 
-            if (user.Person.Status == 3)
+            var DoesUserIsValid = user != null && user.Person.Status == 3;
+            if (DoesUserIsValid)
             {
                 var personLawyers = await (from pl in _personLawyerRepository.GetAll()
                     join l in _lawyerRepository.GetAll() on pl.LawyerId equals l.Id
@@ -92,7 +93,7 @@ namespace Application.Queries
 
                    
                   userModel = _mapper.Map<UserQueryModel>(user);
-                  userModel.Status = user.Person.Status;
+                  userModel.Status = (int)user.Person.Status;
                 userModel.PersonLawyers = personLawyers;
 
                

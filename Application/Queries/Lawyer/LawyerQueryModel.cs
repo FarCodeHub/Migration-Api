@@ -17,7 +17,7 @@ namespace Application.Queries
         {
             profile.CreateMap<Domain.Entities.Lawyer, LawyerQueryModel>()
             .ForMember(x => x.Conditions,
-                opt => opt.MapFrom(x => x.LawyerCondition));
+                opt => opt.MapFrom(x => x.LawyerConditions));
         }
     }
 

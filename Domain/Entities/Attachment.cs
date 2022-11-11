@@ -1,9 +1,17 @@
-﻿namespace Domain.Entities
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace Domain.Entities
 {
-   public class Attachment:BaseEntity
+    public partial class Attachment:BaseEntity
     {
+       
         public string FileName { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
-     }
+        
+
+        public virtual User User { get; set; }
+    }
 }
