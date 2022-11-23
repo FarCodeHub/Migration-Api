@@ -1,4 +1,5 @@
-﻿using Application.Queries.Ticket;
+﻿using Application.Commands.Ticket.Create;
+using Application.Queries.Ticket;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,12 +18,24 @@ namespace Migration.Controllers
             _ticketQueries = ticketQueries;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] CreateTicketCommand command) =>
+    Ok(await mediator.Send(command));
 
         [HttpGet]
-        public async Task<IActionResult> GetTicketByUserId(int userId)
+        public async Task<IActionResult> GetTicketByUserId(int id)
         {
-            var result = await _ticketQueries.GetTicketByUserId(userId);
+            var result = await _ticketQueries.GetTicketByUserId(id);
             return Ok(result);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTicketsWithoutAnswer()
+        {
+            var result = await _ticketQueries.GetTicketsWithoutAnswer();
+            return Ok(result);
+        }
+ 
+
     }
 }

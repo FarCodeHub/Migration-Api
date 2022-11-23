@@ -15,6 +15,8 @@ namespace Domain.Entities
         public int UserId { get; set; }
         public int? Status { get; set; }
         public bool IsFinished { get; set; }
+        public string? Subject { get; set; }
+        public DateTime? CreateDateTime { get; set; }
 
         public virtual User User { get; set; }
         public virtual ICollection<TicketItem> TicketItems { get; set; }

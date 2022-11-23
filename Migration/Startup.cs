@@ -11,6 +11,7 @@ using Application.Queries;
 using Microsoft.EntityFrameworkCore;
 using Infrastracture.Configuration;
 using Application.Queries.Ticket;
+using Application.Queries.TicketItem;
 
 namespace Migration
 {
@@ -42,6 +43,7 @@ namespace Migration
             services.AddScoped<IPersonQueries, PersonQueries>();
             services.AddScoped<ILawyerQueries, LawyerQueries>();
             services.AddScoped<ITicketQueries, TicketQueries>();
+            services.AddScoped<ITicketItemQueries, TicketItemQueries>();
 
             services.AddDbContext<MigrationContext>(x => x.UseSqlServer(connectionString));
             services.AddMvc();

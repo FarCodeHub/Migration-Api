@@ -13,8 +13,8 @@ namespace Application.Queries
         public string Password { get; set; }
         public int PersonId { get; set; }
         public int Status { get; set; }
+        public bool? IsAdmin { get; set; }
         public List<PersonLawyerModel> PersonLawyers { get; set; }
-
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Domain.Entities.User, UserQueryModel>();

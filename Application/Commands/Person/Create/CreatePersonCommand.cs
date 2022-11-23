@@ -55,8 +55,8 @@ namespace Application.Commands
 
             await _unitOfWork.BeginTransactionAsync(IsolationLevel.ReadCommitted, cancellationToken);
 
-            var person =  _personRepository.Add(_mapper.Map<Domain.Entities.Person>(request));
-            var user = _useRepository.Get(request.UserId);
+            var person =   _personRepository.Add(_mapper.Map<Domain.Entities.Person>(request));
+            var user =await _useRepository.Get(request.UserId);
             var updateEntity = _mapper.Map<Domain.Entities.User>(user);
             updateEntity.Person = person.Entity;
             _useRepository.Update(updateEntity);
